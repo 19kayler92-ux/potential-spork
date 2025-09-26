@@ -24,7 +24,7 @@ pipeline{
               // sh "touch file1.txt"
               // creates file in the specified directory
               // sh "cd /etc && touch file.txt"
-              sh "mkdir ~/jenkins-test"              
+              sh "mkdir ~/jenkins-test || true"        
             }
             // post actions (always, on failure, on skipped - archiving, clean ups, emails)
       }
