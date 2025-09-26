@@ -1,0 +1,37 @@
+//Global vars go here.
+pipeline{
+    agent any
+    // Enviroment vars - used in shell commands
+    // options (pipeline)
+    stages{//pass through the name of the stage
+      stage("Make a directory"){
+        //options()
+        //input(proceed yes, no)
+        // error handling
+            // script{
+            //   """
+            //   echo "hello" > out.tf /
+            //   echo "hello world" > out.tf/
+            //   cd /etc/
+            //   touch file.txt
+            //   """
+            // }
+            steps{
+              // can set the directory if needed
+              // dir("Frontend")
+              // need to pass the kind of command
+              // creates file in the home directory
+              // sh "touch file1.txt"
+              // creates file in the specified directory
+              // sh "cd /etc && touch file.txt"
+              sh "mkdir ~/jenkins-test"              
+            }
+            // post actions (always, on failure, on skipped - archiving, clean ups, emails)
+      }
+      stage("Add a file"){
+        steps{
+          sh "touch ~/jenkins/test/file1.txt"
+        }
+      }
+    }  
+}
